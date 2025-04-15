@@ -1,0 +1,4 @@
+baseURL = 'https://SarayashikiProject.su/'
+languageCode = 'ru'
+title = 'Sarayashiki'
+theme = 'ananke'
