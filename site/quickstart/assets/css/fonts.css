@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap');
+
+:root {
+  --main-font: 'Inter', -apple-system, sans-serif;
+  --font-weight-normal: 300;  /* Основной вес */
+  --font-weight-bold: 400;    /* Полужирный */
+}
+
+body {
+  font-weight: var(--font-weight-normal) !important;
+}
+
+/* Для заголовков (если нужно оставить полужирными) */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-bold) !important;
+}

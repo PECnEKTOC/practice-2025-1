@@ -1,0 +1,89 @@
+/* Основные стили шапки */
+.site-header {
+  background: url('/images/header.png') no-repeat center center/cover !important;
+  height: 50vh;
+  min-height: 400px;
+  position: relative;
+  border-bottom: none !important;
+}
+
+/* Затемнение фона */
+.site-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent);
+  z-index: 0;
+}
+
+/* Контейнер шапки */
+.site-header .wrap {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;  /* Изменили с flex-start на center */
+  padding: 0 2rem !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+/* Стили навигации */
+.site-nav {
+  display: flex !important;
+  gap: 1.5rem !important;
+  align-items: center !important;
+}
+
+.site-nav a {
+  color: rgba(255,255,255,0.8) !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3) !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  padding: 0.5rem 0 !important;
+  white-space: nowrap !important;
+}
+
+/* Стили логотипа */
+.site-title {
+  color: rgba(255,255,255,0.9) !important;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* Анимации при наведении */
+.site-title:hover,
+.site-nav a:hover {
+  color: white !important;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5) !important;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .site-header .wrap {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+/* Жёсткий сброс стилей для логотипа */
+header.site-header a.site-title {
+  color: rgba(255,255,255,0.9) !important;
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5) !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  display: inline-block !important;
+  padding: 0.5rem 0 !important;
+}

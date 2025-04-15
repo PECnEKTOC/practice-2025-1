@@ -1,0 +1,93 @@
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="header-content">
+      <a class="site-title" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+      <nav class="site-nav">
+        {{ range .Site.Menus.main }}
+          <a href="{{ .URL }}" class="nav-link">{{ .Name }}</a>
+        {{ end }}
+      </nav>
+    </div>
+  </div>
+</header>
+
+<style>
+  /* Основные стили */
+  .site-header {
+    background: url('/images/header.png') no-repeat center center/cover;
+    height: 50vh;
+    min-height: 400px;
+    position: relative;
+  }
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    position: relative;
+    z-index: 2;
+    height: 100%;
+  }
+
+  .site-title {
+    color: rgba(255,255,255,0.6);
+    font-size: 36px;
+    font-weight: 700;
+    text-decoration: none;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+  }
+
+  .site-nav {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-link {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 24px;
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    text-shadow: 0 0px 7px rgba(0,0,0,0.8);
+    transition: all 0.2s ease;
+    padding: 0.5rem 0;
+  }
+
+  /* Эффекты при наведении */
+  .site-title:hover,
+  .nav-link:hover {
+    color: white;
+    text-shadow: 0 0px 7px rgba(0,0,0,0.8);
+  }
+
+  /* Затемнение фона */
+  .site-header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.1));
+    z-index: 1;
+  }
+
+  /* Адаптивность */
+  @media (max-width: 768px) {
+    .header-content {
+      flex-direction: column;
+      padding-top: 3rem;
+    }
+    .site-nav {
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+</style>
