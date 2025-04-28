@@ -130,9 +130,9 @@
   .nav-link {
     color: rgba(255,255,255,0.6);
     text-decoration: none;
-    font-weight: 500;
-    font-size: 24px;
-    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    font-family: inherit;
     text-shadow: 0 0px 7px rgba(0,0,0,0.8);
     transition: all 0.2s ease;
     padding: 0.5rem 0;
@@ -185,15 +185,45 @@
   
 
     </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
-    &copy;  Sarayashiki 2025 
-  </a>
-    <div><div class="ananke-socials"></div>
-</div>
+    <footer class="site-footer" style="
+  background: transparent;
+  padding: 2rem 0;
+  margin-top: 3rem;
+  text-align: center;
+">
+  <div class="wrap" style="
+    max-width: 800px;
+    margin: 0 auto;
+  ">
+    <div style="
+      font-size: 0.9rem;
+      line-height: 1.6;
+    ">
+      <a href="http://localhost:1313/" 
+         style="
+           color: #888 !important;
+           text-decoration: none;
+           font-weight: 400;
+           display: inline-block;
+           padding: 0.5rem 1rem;
+         ">
+        &copy;  
+          Sarayashiki 
+         2025
+      </a>
+    </div>
   </div>
+  
+  
+  <style>
+    footer * {
+      color: #333 !important;
+      font-family: inherit !important;
+    }
+    footer a:hover {
+      opacity: 0.7;
+    }
+  </style>
 </footer>
-
   </body>
 </html>
