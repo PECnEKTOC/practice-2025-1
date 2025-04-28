@@ -1,8 +1,0 @@
-/* Nuclear option - применяется ко всему */
-* {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
-  color: #333 !important;
-}
-
-/* Подключение шрифта через @import */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');

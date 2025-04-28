@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Sarayashiki</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on Sarayashiki</description>
+    <generator>Hugo</generator>
+    <language>ru</language>
+    <lastBuildDate>Mon, 28 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Боевая система в работе!</title>
+      <link>http://localhost:1313/posts/2025_04_28/</link>
+      <pubDate>Mon, 28 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2025_04_28/</guid>
+      <description>&lt;p&gt;Начата реализация боевой системы!&lt;br&gt;&#xA;В приоритете: парирование, перекаты, цепочки сильных и слабых атак. Мы хотим добиться отзывчивости и зрелищности, чтобы каждый удар чувствовался мощным и осмысленным.&lt;/p&gt;&#xA;&lt;p&gt;Оставайтесь с нами — впереди ещё много интересного!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Первые наброски арен</title>
+      <link>http://localhost:1313/posts/2025_04_25/</link>
+      <pubDate>Fri, 25 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2025_04_25/</guid>
+      <description>&lt;p&gt;Команда дизайнеров завершила первые концепты арен для PvP и PvE фаз.&lt;br&gt;&#xA;Вдохновляясь архитектурой Японии Сэнгоку, мы стремимся создать локации, в которых каждая битва будет ощущаться как легендарная дуэль.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Старт разработки!</title>
+      <link>http://localhost:1313/posts/2025_04_20/</link>
+      <pubDate>Sun, 20 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2025_04_20/</guid>
+      <description>&lt;p&gt;Мы официально начинаем разработку &amp;ldquo;Sarayashiki&amp;rdquo;!&lt;br&gt;&#xA;Проект прошёл этап предварительного планирования, сформирована основная команда, выбраны ключевые технологии и утверждена концепция. Вперёд к победе!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

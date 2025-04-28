@@ -6,6 +6,49 @@
     <description>Recent content on Sarayashiki</description>
     <generator>Hugo</generator>
     <language>ru</language>
+    <lastBuildDate>Mon, 28 Apr 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://localhost:1313/%D1%8Bndex/</link>
+      <pubDate>Mon, 28 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/%D1%8Bndex/</guid>
+      <description>&lt;h1 id=&#34;добро-пожаловать&#34;&gt;Добро пожаловать&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;Проект &amp;ldquo;Sarayashiki&amp;rdquo;&lt;/strong&gt; — это уникальная многопользовательская action RPG в стиле hack and slash.&lt;br&gt;&#xA;На стыке соревновательности, динамики боя и эстетики Японии эпохи Сэнгоку мы создаём новый опыт для любителей жанров Souls-like, Slasher и Auto Chess-механик.&lt;/p&gt;&#xA;&lt;p&gt;Игра разрабатывается на &lt;strong&gt;Unreal Engine 5&lt;/strong&gt; для платформы &lt;strong&gt;ПК&lt;/strong&gt; с акцентом на зрелищные PvP-схватки и интенсивные PvE-битвы.&lt;/p&gt;&#xA;&lt;p&gt;Следите за новостями, смотрите процесс разработки и присоединяйтесь к нашему пути!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Боевая система в работе!</title>
+      <link>http://localhost:1313/posts/2025_04_28/</link>
+      <pubDate>Mon, 28 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2025_04_28/</guid>
+      <description>&lt;p&gt;Начата реализация боевой системы!&lt;br&gt;&#xA;В приоритете: парирование, перекаты, цепочки сильных и слабых атак. Мы хотим добиться отзывчивости и зрелищности, чтобы каждый удар чувствовался мощным и осмысленным.&lt;/p&gt;&#xA;&lt;p&gt;Оставайтесь с нами — впереди ещё много интересного!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>О проекте</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 28 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Sarayashiki&lt;/strong&gt; — это action RPG hack and slash, совмещающая в себе динамичные бои и элементы стратегического развития персонажа.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Игровая суть&lt;/strong&gt;:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Игра для 8 игроков.&lt;/li&gt;&#xA;&lt;li&gt;Механика чередования PvE и PvP фаз через систему закупок и боёв.&lt;/li&gt;&#xA;&lt;li&gt;Постепенное усиление через сбор билдов: навыки, атрибуты, предметы.&lt;/li&gt;&#xA;&lt;li&gt;Последний выживший становится победителем сессии.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Мир игры&lt;/strong&gt;:&#xA;Проект погружает игроков в альтернативную Японию эпохи Сэнгоку с элементами фэнтези. Мрачные арены, легендарные воины, магические умения и глубокая механика боя формируют атмосферу настоящей битвы за выживание.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ресурсы</title>
+      <link>http://localhost:1313/resources/</link>
+      <pubDate>Mon, 28 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/resources/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Технологии&lt;/strong&gt;:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Движок&lt;/strong&gt;: Unreal Engine 5&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Язык разработки&lt;/strong&gt;: Русский&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Платформа&lt;/strong&gt;: ПК (Windows)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Графика&lt;/strong&gt;:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Стилизация под Японию периода &amp;ldquo;Сэнгоку&amp;rdquo; с элементами фэнтези&lt;/li&gt;&#xA;&lt;li&gt;Работаем с освещением в тёмное время суток для создания нужного настроения&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Игровой дизайн&lt;/strong&gt;:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Основная референция механик: Auto Chess, Souls-like, Slasher-игры&lt;/li&gt;&#xA;&lt;li&gt;Боевая система с упором на парирование, блоки, сильные/слабые удары и комбинации&lt;/li&gt;&#xA;&lt;li&gt;Механика роста через предметы, прокачку навыков и атрибутов&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Локации&lt;/strong&gt;:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;PvP-арены со сложным окружением&lt;/li&gt;&#xA;&lt;li&gt;PvE-арены для одиночных испытаний&lt;/li&gt;&#xA;&lt;li&gt;Нейтральная зона для закупок и теста билдов&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Персонажи&lt;/strong&gt;:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Первые наброски арен</title>
+      <link>http://localhost:1313/posts/2025_04_25/</link>
+      <pubDate>Fri, 25 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2025_04_25/</guid>
+      <description>&lt;p&gt;Команда дизайнеров завершила первые концепты арен для PvP и PvE фаз.&lt;br&gt;&#xA;Вдохновляясь архитектурой Японии Сэнгоку, мы стремимся создать локации, в которых каждая битва будет ощущаться как легендарная дуэль.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Старт разработки!</title>
+      <link>http://localhost:1313/posts/2025_04_20/</link>
+      <pubDate>Sun, 20 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2025_04_20/</guid>
+      <description>&lt;p&gt;Мы официально начинаем разработку &amp;ldquo;Sarayashiki&amp;rdquo;!&lt;br&gt;&#xA;Проект прошёл этап предварительного планирования, сформирована основная команда, выбраны ключевые технологии и утверждена концепция. Вперёд к победе!&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

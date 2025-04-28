@@ -1,5 +1,6 @@
-
-<header class="site-header">
+<!-- Большой хедер с картинкой -->
+<header class="main-header">
+  <div class="header-bg-image"></div>
   <div class="wrap">
     <div class="header-content">
       <a class="site-title" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
@@ -12,35 +13,77 @@
   </div>
 </header>
 
+<!-- Фиксированный хедер -->
+<header class="fixed-header">
+  <div class="wrap">
+    <div class="fixed-header-content">
+      <a class="fixed-site-title" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+      <nav class="fixed-site-nav">
+        {{ range .Site.Menus.main }}
+          <a href="{{ .URL }}" class="fixed-nav-link">{{ .Name }}</a>
+        {{ end }}
+      </nav>
+    </div>
+  </div>
+</header>
+
 <style>
-  /* Основные стили */
-  .site-header {
-    background: url('/images/header.png') no-repeat center center/cover;
-    height: 50vh;
-    min-height: 400px;
+  /* Основной хедер */
+  .main-header {
+    height: 500px;
     position: relative;
+    overflow: hidden;
   }
   
+  .header-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/images/header.png') no-repeat center center/cover;
+    z-index: 1;
+  }
+
+  /* Фиксированный хедер */
+  .fixed-header {
+    position: fixed;
+    top: -100px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: rgba(255,255,255,0.65);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    transition: top 0.3s ease;
+    box-shadow: 0 1px 10px rgba(0,0,0,0.1);
+  }
+
+  /* Общие стили */
+  .wrap {
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Стили основного хедера */
   .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    max-width: 1800px;
-    margin: 0 auto;
-    padding: 1rem 2rem;
+    height: 100%;
     position: relative;
     z-index: 2;
-    height: 100%;
+    padding-top: 25px;
   }
 
   .site-title {
-    color: rgba(255,255,255,0.6);
-    font-size: 36px;
+    color: white;
+    font-size: 2.2rem;
     font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
     text-decoration: none;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    transition: all 0.3s ease;
   }
 
   .site-nav {
@@ -49,25 +92,53 @@
   }
 
   .nav-link {
-    color: rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.9);
+    font-size: 1.1rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
     text-decoration: none;
-    font-weight: 400;
-    font-size: 22px;
-    font-family: inherit;
-    text-shadow: 0 0px 7px rgba(0,0,0,0.8);
-    transition: all 0.2s ease;
     padding: 0.5rem 0;
   }
 
+  /* Стили фиксированного хедера */
+  .fixed-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+  }
+
+  .fixed-site-title {
+    color: #222;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .fixed-site-nav {
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .fixed-nav-link {
+    color: #444;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
   /* Эффекты при наведении */
-  .site-title:hover,
-  .nav-link:hover {
-    color: white;
-    text-shadow: 0 0px 7px rgba(0,0,0,0.8);
+  .nav-link:hover,
+  .fixed-nav-link:hover {
+    opacity: 0.8;
   }
 
   /* Затемнение фона */
-  .site-header::after {
+  .main-header::after {
     content: "";
     position: absolute;
     top: 0;
@@ -77,17 +148,19 @@
     background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.1));
     z-index: 1;
   }
-
-  /* Адаптивность */
-  @media (max-width: 768px) {
-    .header-content {
-      flex-direction: column;
-      padding-top: 3rem;
-    }
-    .site-nav {
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-  }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const fixedHeader = document.querySelector('.fixed-header');
+    const triggerPoint = 50;
+
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > triggerPoint) {
+        fixedHeader.style.top = '0';
+      } else {
+        fixedHeader.style.top = '-100px';
+      }
+    });
+  });
+</script>

@@ -3,17 +3,14 @@
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-  
-</header>
     <title>Sarayashiki</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="Sarayashiki - игровой проект студентов Московского политехнического университета">
     <meta name="generator" content="Hugo 0.146.4">
     
     
-    
       <meta name="robots" content="noindex, nofollow">
+    
     
     
 
@@ -36,10 +33,7 @@
     
 
     
-    
-      <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Sarayashiki" />
-      <link href="/index.xml" rel="feed" type="application/rss+xml" title="Sarayashiki" />
-      
+      <link rel="alternate" type="application/rss&#43;xml" href="http://localhost:1313/index.xml" title="Sarayashiki">
     
 
     
@@ -53,26 +47,50 @@
   <meta property="og:locale" content="ru">
   <meta property="og:type" content="website">
 
+    
   <meta itemprop="name" content="Sarayashiki">
   <meta itemprop="description" content="Sarayashiki - игровой проект студентов Московского политехнического университета">
+  <meta itemprop="datePublished" content="2025-04-28T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-04-28T00:00:00+00:00">
+    
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Sarayashiki">
   <meta name="twitter:description" content="Sarayashiki - игровой проект студентов Московского политехнического университета">
 
-	
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --main-font: 'Inter', -apple-system, sans-serif;
-  }
-</style>
-
-<link rel="stylesheet" href="http://localhost:1313/css/fonts.min.css">
-<style>@charset "UTF-8";@import "https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap";:root{--main-font:'Inter', -apple-system, sans-serif;--font-weight-normal:300;--font-weight-bold:400}body{font-weight:var(--font-weight-normal)!important}h1,h2,h3,h4,h5,h6{font-weight:var(--font-weight-bold)!important}</style>
-  </head><body class="ma0 font-inter bg-near-white development" style="font-family: 'Inter', sans-serif !important">
 
     
-<header class="site-header">
+
+    
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --main-font: 'Inter', -apple-system, sans-serif;
+      }
+    </style>
+    <style>
+      .main-content-wrapper {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 20px;
+        width: 100%;
+      }
+      @media (max-width: 1080px) {
+        .main-content-wrapper {
+          padding: 0 15px;
+        }
+      }
+    </style>
+    
+    
+    <link rel="stylesheet" href="http://localhost:1313/css/fonts.min.css">
+    <style>@charset "UTF-8";@import "https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap";:root{--main-font:'Inter', -apple-system, sans-serif;--font-weight-normal:300;--font-weight-bold:400}body{font-weight:var(--font-weight-normal)!important}h1,h2,h3,h4,h5,h6{font-weight:var(--font-weight-bold)!important}</style>
+  </head>
+
+  <body class="ma0 font-inter bg-near-white development" style="font-family: 'Inter', sans-serif">
+    
+<header class="main-header">
+  <div class="header-bg-image"></div>
   <div class="wrap">
     <div class="header-content">
       <a class="site-title" href="http://localhost:1313/">Sarayashiki</a>
@@ -91,35 +109,83 @@
   </div>
 </header>
 
+
+<header class="fixed-header">
+  <div class="wrap">
+    <div class="fixed-header-content">
+      <a class="fixed-site-title" href="http://localhost:1313/">Sarayashiki</a>
+      <nav class="fixed-site-nav">
+        
+          <a href="/about/" class="fixed-nav-link">О проекте</a>
+        
+          <a href="/posts/" class="fixed-nav-link">Журнал</a>
+        
+          <a href="/team/" class="fixed-nav-link">Участники</a>
+        
+          <a href="/resources/" class="fixed-nav-link">Ресурсы</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
 <style>
    
-  .site-header {
-    background: url('/images/header.png') no-repeat center center/cover;
-    height: 50vh;
-    min-height: 400px;
+  .main-header {
+    height: 500px;
     position: relative;
+    overflow: hidden;
   }
   
+  .header-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/images/header.png') no-repeat center center/cover;
+    z-index: 1;
+  }
+
+   
+  .fixed-header {
+    position: fixed;
+    top: -100px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: rgba(255,255,255,0.65);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    transition: top 0.3s ease;
+    box-shadow: 0 1px 10px rgba(0,0,0,0.1);
+  }
+
+   
+  .wrap {
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+   
   .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    max-width: 1800px;
-    margin: 0 auto;
-    padding: 1rem 2rem;
+    height: 100%;
     position: relative;
     z-index: 2;
-    height: 100%;
+    padding-top: 25px;
   }
 
   .site-title {
-    color: rgba(255,255,255,0.6);
-    font-size: 36px;
+    color: white;
+    font-size: 2.2rem;
     font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
     text-decoration: none;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    transition: all 0.3s ease;
   }
 
   .site-nav {
@@ -128,25 +194,53 @@
   }
 
   .nav-link {
-    color: rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.9);
+    font-size: 1.1rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
     text-decoration: none;
-    font-weight: 400;
-    font-size: 22px;
-    font-family: inherit;
-    text-shadow: 0 0px 7px rgba(0,0,0,0.8);
-    transition: all 0.2s ease;
     padding: 0.5rem 0;
   }
 
    
-  .site-title:hover,
-  .nav-link:hover {
-    color: white;
-    text-shadow: 0 0px 7px rgba(0,0,0,0.8);
+  .fixed-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+  }
+
+  .fixed-site-title {
+    color: #222;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .fixed-site-nav {
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .fixed-nav-link {
+    color: #444;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
   }
 
    
-  .site-header::after {
+  .nav-link:hover,
+  .fixed-nav-link:hover {
+    opacity: 0.8;
+  }
+
+   
+  .main-header::after {
     content: "";
     position: absolute;
     top: 0;
@@ -156,22 +250,26 @@
     background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.1));
     z-index: 1;
   }
-
-   
-  @media (max-width: 768px) {
-    .header-content {
-      flex-direction: column;
-      padding-top: 3rem;
-    }
-    .site-nav {
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-  }
 </style>
-    <main class="pb7" role="main">
-      
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const fixedHeader = document.querySelector('.fixed-header');
+    const triggerPoint = 50;
+
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > triggerPoint) {
+        fixedHeader.style.top = '0';
+      } else {
+        fixedHeader.style.top = '-100px';
+      }
+    });
+  });
+</script>
+    
+     <main role="main">
+      <div class="main-content-wrapper">
+        
   <article class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray">
     
   </article>
@@ -183,8 +281,127 @@
   
 
   
+    <div class="pa3 pa4-ns w-100 w-70-ns center">
+      
 
+      <section class="w-100 mw8">
+        
+        
+          <div class="w-100 mb4 relative">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l dark-gray no-underline">
+    <div class="flex-column flex-row-ns flex">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/%D1%8Bndex/" class="color-inherit dim link">
+            
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          <h1 id="добро-пожаловать">Добро пожаловать</h1>
+<p><strong>Проект &ldquo;Sarayashiki&rdquo;</strong> — это уникальная многопользовательская action RPG в стиле hack and slash.<br>
+На стыке соревновательности, динамики боя и эстетики Японии эпохи Сэнгоку мы создаём новый опыт для любителей жанров Souls-like, Slasher и Auto Chess-механик.</p>
+<p>Игра разрабатывается на <strong>Unreal Engine 5</strong> для платформы <strong>ПК</strong> с акцентом на зрелищные PvP-схватки и интенсивные PvE-битвы.</p>
+<p>Следите за новостями, смотрите процесс разработки и присоединяйтесь к нашему пути!</p>
+        </div>
+        <a href="/%D1%8Bndex/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="w-100 mb4 relative">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l dark-gray no-underline">
+    <div class="flex-column flex-row-ns flex">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/about/" class="color-inherit dim link">
+            О проекте
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          <p><strong>Sarayashiki</strong> — это action RPG hack and slash, совмещающая в себе динамичные бои и элементы стратегического развития персонажа.</p>
+<p><strong>Игровая суть</strong>:</p>
+<ul>
+<li>Игра для 8 игроков.</li>
+<li>Механика чередования PvE и PvP фаз через систему закупок и боёв.</li>
+<li>Постепенное усиление через сбор билдов: навыки, атрибуты, предметы.</li>
+<li>Последний выживший становится победителем сессии.</li>
+</ul>
+<p><strong>Мир игры</strong>:
+Проект погружает игроков в альтернативную Японию эпохи Сэнгоку с элементами фэнтези. Мрачные арены, легендарные воины, магические умения и глубокая механика боя формируют атмосферу настоящей битвы за выживание.</p>
+        </div>
+        <a href="/about/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="w-100 mb4 relative">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l dark-gray no-underline">
+    <div class="flex-column flex-row-ns flex">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/resources/" class="color-inherit dim link">
+            Ресурсы
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          <p><strong>Технологии</strong>:</p>
+<ul>
+<li><strong>Движок</strong>: Unreal Engine 5</li>
+<li><strong>Язык разработки</strong>: Русский</li>
+<li><strong>Платформа</strong>: ПК (Windows)</li>
+</ul>
+<p><strong>Графика</strong>:</p>
+<ul>
+<li>Стилизация под Японию периода &ldquo;Сэнгоку&rdquo; с элементами фэнтези</li>
+<li>Работаем с освещением в тёмное время суток для создания нужного настроения</li>
+</ul>
+<p><strong>Игровой дизайн</strong>:</p>
+<ul>
+<li>Основная референция механик: Auto Chess, Souls-like, Slasher-игры</li>
+<li>Боевая система с упором на парирование, блоки, сильные/слабые удары и комбинации</li>
+<li>Механика роста через предметы, прокачку навыков и атрибутов</li>
+</ul>
+<p><strong>Локации</strong>:</p>
+<ul>
+<li>PvP-арены со сложным окружением</li>
+<li>PvE-арены для одиночных испытаний</li>
+<li>Нейтральная зона для закупок и теста билдов</li>
+</ul>
+<p><strong>Персонажи</strong>:</p>
+        </div>
+        <a href="/resources/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+      </section>
+
+      
+
+    </div>
+  
+
+      </div>
     </main>
+    
     <footer class="site-footer" style="
   background: transparent;
   padding: 2rem 0;
