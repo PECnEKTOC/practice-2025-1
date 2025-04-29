@@ -1,11 +1,16 @@
 ﻿using RLNET;
 using RogueSharpV3Tutorial.Core;
 using RogueSharpV3Tutorial.Systems;
+using RogueSharp.Random;
 
 namespace RogueSharpV3Tutorial
 {
    public static class Game
    {
+      public static IRandom Random { get; private set; }
+      private static bool _renderRequired = true;
+      public static CommandSystem CommandSystem { get; private set; }
+      public static Player Player { get; private set; }
       // The screen height and width are in number of tiles
       private static readonly int _screenWidth = 100;
       private static readonly int _screenHeight = 70;
@@ -35,6 +40,12 @@ namespace RogueSharpV3Tutorial
 
       public static void Main()
       {
+         int seed = (int) DateTime.UtcNow.Ticks;
+         Random = new DotNetRandom( seed );
+         
+         // The title will appear at the top of the console window 
+         // also include the seed used to generate the level
+         CommandSystem = new CommandSystem();
          // This must be the exact name of the bitmap font file we are using or it will error.
          string fontFileName = "terminal8x8.png";
 
@@ -50,8 +61,12 @@ namespace RogueSharpV3Tutorial
          _statConsole = new RLConsole( _statWidth, _statHeight );
          _inventoryConsole = new RLConsole( _inventoryWidth, _inventoryHeight );
 
-         MapGenerator mapGenerator = new MapGenerator( _mapWidth, _mapHeight );
+         Player = new Player();
+         // The next two lines already existed
+         MapGenerator mapGenerator = new MapGenerator( _mapWidth, _mapHeight, 20, 13, 7 );
          DungeonMap = mapGenerator.CreateMap();
+         // End of existing code
+         DungeonMap.UpdatePlayerFieldOfView();
 
          // Set up a handler for RLNET's Update event
          _rootConsole.Update += OnRootConsoleUpdate;
@@ -63,9 +78,10 @@ namespace RogueSharpV3Tutorial
          _rootConsole.Run();
       }
 
-      // Event handler for RLNET's Update event
+         // Event handler for RLNET's Update event
       private static void OnRootConsoleUpdate( object sender, UpdateEventArgs e )
       {
+         
          // Set background color and text for each console so that we can verify they are in the correct positions
          _mapConsole.SetBackColor( 0, 0, _mapWidth, _mapHeight, Colors.FloorBackground );
          _mapConsole.Print( 1, 1, "Map", Colors.TextHeading );
@@ -78,6 +94,42 @@ namespace RogueSharpV3Tutorial
 
          _inventoryConsole.SetBackColor( 0, 0, _inventoryWidth, _inventoryHeight, Swatch.DbWood );
          _inventoryConsole.Print( 1, 1, "Inventory", Colors.TextHeading );
+
+         bool didPlayerAct = false;
+         RLKeyPress keyPress = _rootConsole.Keyboard.GetKeyPress();
+      
+         if ( keyPress != null )
+         {
+            if ( keyPress.Key == RLKey.Up )
+            {
+               didPlayerAct = CommandSystem.MovePlayer( Direction.Up );
+            }
+            else if ( keyPress.Key == RLKey.Down )
+            {
+               didPlayerAct = CommandSystem.MovePlayer( Direction.Down );
+            }
+            else if ( keyPress.Key == RLKey.Left )
+            {
+               didPlayerAct = CommandSystem.MovePlayer( Direction.Left );
+            }
+            else if ( keyPress.Key == RLKey.Right )
+            {
+               didPlayerAct = CommandSystem.MovePlayer( Direction.Right );
+            }
+            else if ( keyPress.Key == RLKey.Escape )
+            {
+               _rootConsole.Close();
+            }
+         }
+         if ( _renderRequired )
+         {
+            Player.Draw( _mapConsole, DungeonMap );
+            _renderRequired = false;
+         }
+         if ( didPlayerAct )
+         {
+            _renderRequired = true;
+         }    
       }
 
       // Event handler for RLNET's Render event

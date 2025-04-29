@@ -3,7 +3,8 @@ using RLNET;
 namespace RogueSharpV3Tutorial.Core
 {
    public class Colors
-   {
+   {	
+      public static RLColor Player = Swatch.DbLight;
       public static RLColor FloorBackground = RLColor.Black;
       public static RLColor Floor = Swatch.AlternateDarkest;
       public static RLColor FloorBackgroundFov = Swatch.DbDark;
