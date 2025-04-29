@@ -1,52 +1,50 @@
 using RogueSharpV3Tutorial.Core;
-using RogueSharp;
-using RLNET;
-using RogueSharpV3Tutorial.Systems;
-using RogueSharpV3Tutorial.Interfaces;
-using RogueSharpV3Tutorial;
 
-public class CommandSystem
+namespace RogueSharpV3Tutorial.Systems
 {
-  // Return value is true if the player was able to move
-  // false when the player couldn't move, such as trying to move into a wall
-  public bool MovePlayer( Direction direction )
-  {
-    int x = Game.Player.X;
-    int y = Game.Player.Y;
- 
-    switch ( direction )
-    {
-    case Direction.Up:
+   public class CommandSystem
+   {
+      // Return value is true if the player was able to move
+      // false when the player couldn't move, such as trying to move into a wall
+      public bool MovePlayer( Direction direction )
       {
-        y = Game.Player.Y - 1;
-        break;
+         int x = Game.Player.X;
+         int y = Game.Player.Y;
+
+         switch ( direction )
+         {
+            case Direction.Up:
+            {
+               y = Game.Player.Y - 1;
+               break;
+            }
+            case Direction.Down:
+            {
+               y = Game.Player.Y + 1;
+               break;
+            }
+            case Direction.Left:
+            {
+               x = Game.Player.X - 1;
+               break;
+            }
+            case Direction.Right:
+            {
+               x = Game.Player.X + 1;
+               break;
+            }
+            default:
+            {
+               return false;
+            }
+         }
+
+         if ( Game.DungeonMap.SetActorPosition( Game.Player, x, y ) )
+         {
+            return true;
+         }
+
+         return false;
       }
-    case Direction.Down:
-      {
-        y = Game.Player.Y + 1;
-        break;
-      }
-    case Direction.Left:
-      {
-        x = Game.Player.X - 1;
-        break;
-      }
-    case Direction.Right:
-      {
-        x = Game.Player.X + 1;
-        break;
-      }
-    default:
-      {
-        return false;
-      }
-    }
- 
-    if ( Game.DungeonMap.SetActorPosition( Game.Player, x, y ) )
-    {
-      return true;
-    }
- 
-    return false;
-  }
+   }
 }

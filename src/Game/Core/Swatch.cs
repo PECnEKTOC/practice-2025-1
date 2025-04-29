@@ -4,6 +4,8 @@ namespace RogueSharpV3Tutorial.Core
 {
    public class Swatch
    {
+      // http://paletton.com/#uid=73d0u0k5qgb2NnT41jT74c8bJ8X
+
       public static RLColor PrimaryLightest = new RLColor( 110, 121, 119 );
       public static RLColor PrimaryLighter = new RLColor( 88, 100, 98 );
       public static RLColor Primary = new RLColor( 68, 82, 79 );
