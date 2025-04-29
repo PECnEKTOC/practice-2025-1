@@ -17,8 +17,8 @@ footer {
 }
 
 footer.site-footer {
-  background: transparent !important;  /* Серый цвет */
-  padding: 2rem 0 !important;      /* Увеличиваем высоту */
+  background: transparent !important;
+  padding: 2rem 0 !important;
   border-top: none !important;
   margin-top: 3rem !important;
 }
@@ -27,7 +27,6 @@ footer.site-footer a {
   color: #333 !important;
 }
 
-/* Убираем стандартные отступы темы */
 body .pb7 {
   padding-bottom: 0 !important;
 }

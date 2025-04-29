@@ -1,6 +1,6 @@
 ---
 title: "О проекте"
-date: 2025-04-28
+date: 2025-04-27
 draft: false
 layout: single
 ---
