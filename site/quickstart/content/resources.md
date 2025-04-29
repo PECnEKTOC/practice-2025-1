@@ -2,7 +2,7 @@
 title: "Ресурсы"
 date: 2025-04-28
 draft: false
-layout: "resources"
+layout: single
 ---
 **Технологии**:
 - **Движок**: Unreal Engine 5
