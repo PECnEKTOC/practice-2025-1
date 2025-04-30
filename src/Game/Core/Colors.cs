@@ -4,6 +4,7 @@ namespace RogueSharpV3Tutorial.Core
 {
    public class Colors
    {
+      public static RLColor KoboldColor = Swatch.DbBrightWood;
       public static RLColor TextHeading = RLColor.White;
       public static RLColor Text = Swatch.DbLight;
       public static RLColor Gold = Swatch.DbSun;
