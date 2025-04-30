@@ -8,10 +8,12 @@ namespace RogueSharpV3Tutorial
 {
    public static class Game
    {
+      private static int _steps = 0;
       // The screen height and width are in number of tiles
       private static readonly int _screenWidth = 100;
       private static readonly int _screenHeight = 70;
       private static RLRootConsole _rootConsole;
+      public static MessageLog MessageLog { get; private set; }
 
       // The map console takes up most of the screen and is where the map will be drawn
       private static readonly int _mapWidth = 80;
@@ -75,10 +77,15 @@ namespace RogueSharpV3Tutorial
          // Set up a handler for RLNET's Render event
          _rootConsole.Render += OnRootConsoleRender;
 
-         // Set background color and text for each console so that we can verify they are in the correct positions
+         // Create a new MessageLog and print the random seed used to generate the level
+         MessageLog = new MessageLog();
+         MessageLog.Add( "The rogue arrives on level 1" );
+         MessageLog.Add( $"Level created with seed '{seed}'" );
+         
+         // Remove these lines:
          _messageConsole.SetBackColor( 0, 0, _messageWidth, _messageHeight, Swatch.DbDeepWater );
          _messageConsole.Print( 1, 1, "Messages", Colors.TextHeading );
-
+         
          _statConsole.SetBackColor( 0, 0, _statWidth, _statHeight, Swatch.DbOldStone );
          _statConsole.Print( 1, 1, "Stats", Colors.TextHeading );
 
@@ -120,8 +127,10 @@ namespace RogueSharpV3Tutorial
          }
 
          if ( didPlayerAct )
-         {
-            _renderRequired = true;
+         {  
+         // Every time the player acts increment the steps and log it
+         MessageLog.Add( $"Step # {++_steps}" );  
+         _renderRequired = true;
          }
       }
 
@@ -133,6 +142,7 @@ namespace RogueSharpV3Tutorial
          {
             DungeonMap.Draw( _mapConsole );
             Player.Draw( _mapConsole, DungeonMap );
+            MessageLog.Draw( _messageConsole );
 
             // Blit the sub consoles to the root console in the correct locations
             RLConsole.Blit( _mapConsole, 0, 0, _mapWidth, _mapHeight, _rootConsole, 0, _inventoryHeight );
