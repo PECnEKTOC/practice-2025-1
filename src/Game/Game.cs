@@ -8,7 +8,6 @@ namespace RogueSharpV3Tutorial
 {
    public static class Game
    {
-      private static int _steps = 0;
       // The screen height and width are in number of tiles
       private static readonly int _screenWidth = 100;
       private static readonly int _screenHeight = 70;
@@ -82,9 +81,6 @@ namespace RogueSharpV3Tutorial
          MessageLog.Add( "The rogue arrives on level 1" );
          MessageLog.Add( $"Level created with seed '{seed}'" );
              
-         _statConsole.SetBackColor( 0, 0, _statWidth, _statHeight, Swatch.DbOldStone );
-         _statConsole.Print( 1, 1, "Stats", Colors.TextHeading );
-
          _inventoryConsole.SetBackColor( 0, 0, _inventoryWidth, _inventoryHeight, Swatch.DbWood );
          _inventoryConsole.Print( 1, 1, "Inventory", Colors.TextHeading );
 
@@ -124,9 +120,7 @@ namespace RogueSharpV3Tutorial
 
          if ( didPlayerAct )
          {  
-         // Every time the player acts increment the steps and log it
-         MessageLog.Add( $"Step # {++_steps}" );  
-         _renderRequired = true;
+            _renderRequired = true;
          }
       }
 
@@ -137,8 +131,9 @@ namespace RogueSharpV3Tutorial
          if ( _renderRequired )
          {
             DungeonMap.Draw( _mapConsole );
-            Player.Draw( _mapConsole, DungeonMap );
             MessageLog.Draw( _messageConsole );
+            Player.Draw( _mapConsole, DungeonMap );
+            Player.DrawStats( _statConsole ); 
 
             // Blit the sub consoles to the root console in the correct locations
             RLConsole.Blit( _mapConsole, 0, 0, _mapWidth, _mapHeight, _rootConsole, 0, _inventoryHeight );
