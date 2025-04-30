@@ -23,3 +23,4 @@ C:\Users\maxko\Documents\Sync\ПроектнаяПрактика\practice-2025-1
 C:\Users\maxko\Documents\Sync\ПроектнаяПрактика\practice-2025-1\src\Game\bin\Debug\net9.0\runtimes\win\lib\net9.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\maxko\Documents\Sync\ПроектнаяПрактика\practice-2025-1\src\Game\bin\Debug\net9.0\System.Drawing.Common.dll
 C:\Users\maxko\Documents\Sync\ПроектнаяПрактика\practice-2025-1\src\Game\bin\Debug\net9.0\System.Private.Windows.Core.dll
+C:\Users\maxko\Documents\Sync\ПроектнаяПрактика\practice-2025-1\src\Game\bin\Debug\net9.0\images.png

@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using RLNET;
 using RogueSharp;
-
+using RogueSharpV3Tutorial.Interfaces;
+using RogueSharpV3Tutorial.Systems;
 namespace RogueSharpV3Tutorial.Core
 {
    // Our custom DungeonMap class extends the base RogueSharp Map class
@@ -57,7 +58,7 @@ namespace RogueSharpV3Tutorial.Core
       // A helper method for setting the IsWalkable property on a Cell
       public void SetIsWalkable( int x, int y, bool isWalkable )
       {
-         ICell cell = GetCell( x, y );
+         Cell cell = GetCell( x, y );
          SetCellProperties( cell.X, cell.Y, cell.IsTransparent, isWalkable, cell.IsExplored );
       }
 
