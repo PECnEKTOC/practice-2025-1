@@ -11,11 +11,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Win32.SystemEvents" Version="9.0.4" />
     <PackageReference Include="RLNET" Version="1.0.6" />
-    <PackageReference Include="RogueSharp" Version="3.0.0" />
+    <PackageReference Include="RogueSharp" Version="4.2.0" />
     <None Update="terminal8x8.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="images.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <PackageReference Include="System.Drawing.Common" Version="9.0.4" />

@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using RogueSharp;
 using RogueSharpV3Tutorial.Core;
@@ -52,11 +53,41 @@ namespace RogueSharpV3Tutorial.Systems
                _map.Rooms.Add( newRoom );
             }
          }
+
+         // Iterate through each room that was generated
+         for ( int r = 0; r < _map.Rooms.Count; r++ )
+         {
+            // Don't do anything with the first room
+            if ( r == 0 )
+            {
+               continue;
+            }
+            // For all remaing rooms get the center of the room and the previous room
+            int previousRoomCenterX = _map.Rooms[r - 1].Center.X;
+            int previousRoomCenterY = _map.Rooms[r - 1].Center.Y;
+            int currentRoomCenterX = _map.Rooms[r].Center.X;
+            int currentRoomCenterY = _map.Rooms[r].Center.Y;
+
+            // Give a 50/50 chance of which 'L' shaped connecting cooridors to make
+            if ( Game.Random.Next( 1, 2 ) == 1 )
+            {
+               CreateHorizontalTunnel( previousRoomCenterX, currentRoomCenterX, previousRoomCenterY );
+               CreateVerticalTunnel( previousRoomCenterY, currentRoomCenterY, currentRoomCenterX );
+            }
+            else
+            {
+               CreateVerticalTunnel( previousRoomCenterY, currentRoomCenterY, previousRoomCenterX );
+               CreateHorizontalTunnel( previousRoomCenterX, currentRoomCenterX, currentRoomCenterY );
+            }
+         }
+
          // Iterate through each room that we wanted placed and call CreateRoom to make it
          foreach ( Rectangle room in _map.Rooms )
          {
             CreateRoom( room );
          }
+
+         PlacePlayer();
 
          return _map;
       }
@@ -69,9 +100,42 @@ namespace RogueSharpV3Tutorial.Systems
          {
             for ( int y = room.Top + 1; y < room.Bottom; y++ )
             {
-               _map.SetCellProperties( x, y, true, true, true );
+               _map.SetCellProperties( x, y, true, true );
             }
          }
+      }
+      
+      // Carve a tunnel out of the map parallel to the x-axis
+      private void CreateHorizontalTunnel( int xStart, int xEnd, int yPosition )
+      {
+         for ( int x = Math.Min( xStart, xEnd ); x <= Math.Max( xStart, xEnd ); x++ )
+         {
+            _map.SetCellProperties( x, yPosition, true, true );
+         }
+      }
+
+      // Carve a tunnel out of the map parallel to the y-axis
+      private void CreateVerticalTunnel( int yStart, int yEnd, int xPosition )
+      {
+         for ( int y = Math.Min( yStart, yEnd ); y <= Math.Max( yStart, yEnd ); y++ )
+         {
+            _map.SetCellProperties( xPosition, y, true, true );
+         }
+      }
+
+      // Find the center of the first room that we created and place the Player there
+      private void PlacePlayer()
+      {
+         Player player = Game.Player;
+         if ( player == null )
+         {
+            player = new Player();
+         }
+
+         player.X = _map.Rooms[0].Center.X;
+         player.Y = _map.Rooms[0].Center.Y;
+
+         _map.AddPlayer( player );
       }
    }
 }
