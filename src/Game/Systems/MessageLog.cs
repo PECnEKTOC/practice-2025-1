@@ -3,6 +3,8 @@ using RogueSharp;
 
 // Represents a queue of messages that can be added to
 // Has a method for and drawing to an RLConsole
+// Represents a queue of messages that can be added to
+// Has a method for and drawing to an RLConsole
 public class MessageLog
 {
   // Define the maximum number of lines to store

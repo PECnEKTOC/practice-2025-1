@@ -81,11 +81,7 @@ namespace RogueSharpV3Tutorial
          MessageLog = new MessageLog();
          MessageLog.Add( "The rogue arrives on level 1" );
          MessageLog.Add( $"Level created with seed '{seed}'" );
-         
-         // Remove these lines:
-         _messageConsole.SetBackColor( 0, 0, _messageWidth, _messageHeight, Swatch.DbDeepWater );
-         _messageConsole.Print( 1, 1, "Messages", Colors.TextHeading );
-         
+             
          _statConsole.SetBackColor( 0, 0, _statWidth, _statHeight, Swatch.DbOldStone );
          _statConsole.Print( 1, 1, "Stats", Colors.TextHeading );
 

@@ -8,7 +8,6 @@ namespace RogueSharpV3Tutorial.Core
    public class DungeonMap : Map
    {
       public List<Rectangle> Rooms;
-
       public DungeonMap()
       {
          // Initialize the list of rooms when we create a new DungeonMap
