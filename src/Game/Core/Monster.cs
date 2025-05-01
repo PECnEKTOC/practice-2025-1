@@ -20,8 +20,8 @@ namespace RogueSharpV3Tutorial.Core
          int width = Convert.ToInt32( ( (double) Health / (double) MaxHealth ) * 16.0 );
          int remainingWidth = 16 - width;
          // Set the background colors of the health bar to show how damaged the monster is
-         statConsole.SetBackColor( 3, yPosition, width, 1, Swatch.Primary );
-         statConsole.SetBackColor( 3 + width, yPosition, remainingWidth, 1, Swatch.PrimaryDarkest );
+         statConsole.SetBackColor( 3, yPosition, width, 1, Swatch.DbBlood );
+         statConsole.SetBackColor( 3 + width, yPosition, remainingWidth, 1, Swatch.DbOldBlood );
          // Print the monsters name over top of the health bar
          statConsole.Print( 2, yPosition, $": {Name}", Swatch.DbLight );
       }

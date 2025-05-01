@@ -155,14 +155,24 @@ namespace RogueSharpV3Tutorial
          // Don't bother redrawing all of the consoles if nothing has changed.
          if ( _renderRequired )
          {
+            
+
             _mapConsole.Clear();
             _statConsole.Clear();
             _messageConsole.Clear();
+            
+            _messageConsole.SetBackColor( 0, 0, _messageWidth, _messageHeight, Swatch.DbDeepWater );
+            //_messageConsole.Print( 1, 1, "Messages", Colors.TextHeading );
+            
+            _statConsole.SetBackColor( 0, 0, _statWidth, _statHeight, Swatch.DbOldStone );
+            //_statConsole.Print( 1, 1, "Stats", Colors.TextHeading );
 
             DungeonMap.Draw( _mapConsole, _statConsole );
             Player.Draw( _mapConsole, DungeonMap );
             Player.DrawStats( _statConsole );  
             MessageLog.Draw( _messageConsole );
+
+            
 
             // Blit the sub consoles to the root console in the correct locations
             RLConsole.Blit( _mapConsole, 0, 0, _mapWidth, _mapHeight, _rootConsole, 0, _inventoryHeight );
