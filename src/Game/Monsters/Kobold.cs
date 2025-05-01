@@ -1,28 +1,27 @@
-using RLNET;
-using RogueSharp;
-using RogueSharpV3Tutorial.Core;
-using RogueSharpV3Tutorial.Interfaces;
-using RogueSharpV3Tutorial.Systems;
 using RogueSharp.DiceNotation;
+using RogueSharpV3Tutorial.Core;
 
-public class Kobold : Monster
+namespace RogueSharpV3Tutorial.Monsters
 {
-  public static Kobold Create( int level )
-  {
-    int health = Dice.Roll( "2D5" );
-    return new Kobold {
-      Attack = Dice.Roll( "1D3" ) + level / 3,
-      AttackChance = Dice.Roll( "25D3" ),
-      Awareness = 10,
-      Color = Colors.KoboldColor,
-      Defense = Dice.Roll( "1D3" ) + level / 3,
-      DefenseChance = Dice.Roll( "10D4" ),
-      Gold = Dice.Roll( "5D5" ),
-      Health = health,
-      MaxHealth = health,
-      Name = "Kobold",
-      Speed = 14,
-      Symbol = 'k'
-    };
-  }
+   public class Kobold : Monster
+   {
+      public static Kobold Create( int level )
+      {
+         int health = Dice.Roll( "2D5" );
+         return new Kobold {
+            Attack = Dice.Roll( "1D3" ) + level / 3,
+            AttackChance = Dice.Roll( "25D3" ),
+            Awareness = 10,
+            Color = Colors.KoboldColor,
+            Defense = Dice.Roll( "1D3" ) + level / 3,
+            DefenseChance = Dice.Roll( "10D4" ),
+            Gold = Dice.Roll( "5D5" ),
+            Health = health,
+            MaxHealth = health,
+            Name = "Kobold",
+            Speed = 14,
+            Symbol = 'k'
+         };
+      }
+   }
 }

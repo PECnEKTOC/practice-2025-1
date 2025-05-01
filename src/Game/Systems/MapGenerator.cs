@@ -1,8 +1,9 @@
 using System;
 using System.Linq;
 using RogueSharp;
-using RogueSharpV3Tutorial.Core;
 using RogueSharp.DiceNotation;
+using RogueSharpV3Tutorial.Core;
+using RogueSharpV3Tutorial.Monsters;
 
 namespace RogueSharpV3Tutorial.Systems
 {
@@ -27,33 +28,7 @@ namespace RogueSharpV3Tutorial.Systems
          _roomMinSize = roomMinSize;
          _map = new DungeonMap();
       }
-      private void PlaceMonsters()
-      {
-      foreach ( var room in _map.Rooms )
-      {
-         // Each room has a 60% chance of having monsters
-         if ( Dice.Roll( "1D10" ) < 7 )
-         {
-            // Generate between 1 and 4 monsters
-            var numberOfMonsters = Dice.Roll( "1D4" );
-            for ( int i = 0; i < numberOfMonsters; i++ )
-            {
-            // Find a random walkable location in the room to place the monster
-            Point randomRoomLocation = (Point)_map.GetRandomWalkableLocationInRoom( room );
-            // It's possible that the room doesn't have space to place a monster
-            // In that case skip creating the monster
-            if ( randomRoomLocation != null )
-            {
-               // Temporarily hard code this monster to be created at level 1
-               var monster = Kobold.Create( 1 );
-               monster.X = randomRoomLocation.X;
-               monster.Y = randomRoomLocation.Y;
-               _map.AddMonster( monster );
-            }
-            }
-         }
-      }
-      }
+
       // Generate a new map that places rooms randomly
       public DungeonMap CreateMap()
       {
@@ -115,6 +90,7 @@ namespace RogueSharpV3Tutorial.Systems
          }
 
          PlacePlayer();
+
          PlaceMonsters();
 
          return _map;
@@ -164,6 +140,35 @@ namespace RogueSharpV3Tutorial.Systems
          player.Y = _map.Rooms[0].Center.Y;
 
          _map.AddPlayer( player );
+      }
+
+      private void PlaceMonsters()
+      {
+         foreach ( var room in _map.Rooms )
+         {
+            // Each room has a 60% chance of having monsters
+            if ( Dice.Roll( "1D10" ) < 7 )
+            {
+               // Generate between 1 and 4 monsters
+               var numberOfMonsters = Dice.Roll( "1D4" );
+               for ( int i = 0; i < numberOfMonsters; i++ )
+               {
+                  // Find a random walkable location in the room to place the monster
+                  Point? randomRoomLocationNullable = _map.GetRandomWalkableLocationInRoom( room );
+                  Point randomRoomLocation = (Point)randomRoomLocationNullable;
+                  // It's possible that the room doesn't have space to place a monster
+                  // In that case skip creating the monster
+                  if ( randomRoomLocation != null )
+                  {
+                     // Temporarily hard code this monster to be created at level 1
+                     var monster = Kobold.Create( 1 );
+                     monster.X = randomRoomLocation.X;
+                     monster.Y = randomRoomLocation.Y;
+                     _map.AddMonster( monster );
+                  }
+               }
+            }
+         }
       }
    }
 }

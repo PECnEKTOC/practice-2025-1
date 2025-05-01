@@ -4,7 +4,7 @@ using RogueSharpV3Tutorial.Interfaces;
 
 namespace RogueSharpV3Tutorial.Core
 {
-   public class Actor : IActor, IDrawable
+   public class Actor : IActor, IDrawable, IScheduleable
    {
       // IActor
       private int _attack;
@@ -17,7 +17,7 @@ namespace RogueSharpV3Tutorial.Core
       private int _maxHealth;
       private string _name;
       private int _speed;
-      
+
       public int Attack
       {
          get
@@ -29,7 +29,7 @@ namespace RogueSharpV3Tutorial.Core
             _attack = value;
          }
       }
-      
+
       public int AttackChance
       {
          get
@@ -41,7 +41,7 @@ namespace RogueSharpV3Tutorial.Core
             _attackChance = value;
          }
       }
-      
+
       public int Awareness
       {
          get
@@ -53,7 +53,7 @@ namespace RogueSharpV3Tutorial.Core
             _awareness = value;
          }
       }
-      
+
       public int Defense
       {
          get
@@ -65,7 +65,7 @@ namespace RogueSharpV3Tutorial.Core
             _defense = value;
          }
       }
-      
+
       public int DefenseChance
       {
          get
@@ -77,7 +77,7 @@ namespace RogueSharpV3Tutorial.Core
             _defenseChance = value;
          }
       }
-      
+
       public int Gold
       {
          get
@@ -89,7 +89,7 @@ namespace RogueSharpV3Tutorial.Core
             _gold = value;
          }
       }
-      
+
       public int Health
       {
          get
@@ -101,7 +101,7 @@ namespace RogueSharpV3Tutorial.Core
             _health = value;
          }
       }
-      
+
       public int MaxHealth
       {
          get
@@ -113,7 +113,7 @@ namespace RogueSharpV3Tutorial.Core
             _maxHealth = value;
          }
       }
-      
+
       public string Name
       {
          get
@@ -125,7 +125,7 @@ namespace RogueSharpV3Tutorial.Core
             _name = value;
          } 
       }
-      
+
       public int Speed
       {
          get
@@ -137,6 +137,7 @@ namespace RogueSharpV3Tutorial.Core
             _speed = value;
          }
       }
+
       // IDrawable
       public RLColor Color { get; set; }
       public char Symbol { get; set; }
@@ -159,6 +160,15 @@ namespace RogueSharpV3Tutorial.Core
          {
             // When not in field-of-view just draw a normal floor
             console.Set( X, Y, Colors.Floor, Colors.FloorBackground, '.' );
+         }
+      }
+
+      // IScheduleable
+      public int Time
+      {
+         get
+         {
+            return Speed;
          }
       }
    }

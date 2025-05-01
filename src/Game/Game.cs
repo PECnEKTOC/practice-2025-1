@@ -12,7 +12,6 @@ namespace RogueSharpV3Tutorial
       private static readonly int _screenWidth = 100;
       private static readonly int _screenHeight = 70;
       private static RLRootConsole _rootConsole;
-      public static MessageLog MessageLog { get; private set; }
 
       // The map console takes up most of the screen and is where the map will be drawn
       private static readonly int _mapWidth = 80;
@@ -38,7 +37,9 @@ namespace RogueSharpV3Tutorial
 
       public static Player Player { get; set; }
       public static DungeonMap DungeonMap { get; private set; }
+      public static MessageLog MessageLog { get; private set; }
       public static CommandSystem CommandSystem { get; private set; }
+      public static SchedulingSystem SchedulingSystem { get; private set; }
 
       // We can use this instance of IRandom throughout our game when generating random number
       public static IRandom Random { get; private set; }
@@ -55,6 +56,11 @@ namespace RogueSharpV3Tutorial
          // The title will appear at the top of the console window along with the seed used to generate the level
          string consoleTitle = $"RougeSharp V3 Tutorial - Level 1 - Seed {seed}";
 
+         // Create a new MessageLog and print the random seed used to generate the level
+         MessageLog = new MessageLog();
+         MessageLog.Add( "The rogue arrives on level 1" );
+         MessageLog.Add( $"Level created with seed '{seed}'" );
+
          // Tell RLNet to use the bitmap font that we specified and that each tile is 8 x 8 pixels
          _rootConsole = new RLRootConsole( fontFileName, _screenWidth, _screenHeight, 8, 8, 1f, consoleTitle );
 
@@ -63,6 +69,8 @@ namespace RogueSharpV3Tutorial
          _messageConsole = new RLConsole( _messageWidth, _messageHeight );
          _statConsole = new RLConsole( _statWidth, _statHeight );
          _inventoryConsole = new RLConsole( _inventoryWidth, _inventoryHeight );
+
+         SchedulingSystem = new SchedulingSystem();
 
          MapGenerator mapGenerator = new MapGenerator( _mapWidth, _mapHeight, 20, 13, 7 );
          DungeonMap = mapGenerator.CreateMap();
@@ -76,11 +84,7 @@ namespace RogueSharpV3Tutorial
          // Set up a handler for RLNET's Render event
          _rootConsole.Render += OnRootConsoleRender;
 
-         // Create a new MessageLog and print the random seed used to generate the level
-         MessageLog = new MessageLog();
-         MessageLog.Add( "The rogue arrives on level 1" );
-         MessageLog.Add( $"Level created with seed '{seed}'" );
-             
+         // Set background color and text for each console so that we can verify they are in the correct positions
          _inventoryConsole.SetBackColor( 0, 0, _inventoryWidth, _inventoryHeight, Swatch.DbWood );
          _inventoryConsole.Print( 1, 1, "Inventory", Colors.TextHeading );
 
@@ -94,32 +98,41 @@ namespace RogueSharpV3Tutorial
          bool didPlayerAct = false;
          RLKeyPress keyPress = _rootConsole.Keyboard.GetKeyPress();
 
-         if ( keyPress != null )
+         if ( CommandSystem.IsPlayerTurn )
          {
-            if ( keyPress.Key == RLKey.Up )
+            if ( keyPress != null )
             {
-               didPlayerAct = CommandSystem.MovePlayer( Direction.Up );
+               if ( keyPress.Key == RLKey.Up )
+               {
+                  didPlayerAct = CommandSystem.MovePlayer( Direction.Up );
+               }
+               else if ( keyPress.Key == RLKey.Down )
+               {
+                  didPlayerAct = CommandSystem.MovePlayer( Direction.Down );
+               }
+               else if ( keyPress.Key == RLKey.Left )
+               {
+                  didPlayerAct = CommandSystem.MovePlayer( Direction.Left );
+               }
+               else if ( keyPress.Key == RLKey.Right )
+               {
+                  didPlayerAct = CommandSystem.MovePlayer( Direction.Right );
+               }
+               else if ( keyPress.Key == RLKey.Escape )
+               {
+                  _rootConsole.Close();
+               }
             }
-            else if ( keyPress.Key == RLKey.Down )
+
+            if ( didPlayerAct )
             {
-               didPlayerAct = CommandSystem.MovePlayer( Direction.Down );
-            }
-            else if ( keyPress.Key == RLKey.Left )
-            {
-               didPlayerAct = CommandSystem.MovePlayer( Direction.Left );
-            }
-            else if ( keyPress.Key == RLKey.Right )
-            {
-               didPlayerAct = CommandSystem.MovePlayer( Direction.Right );
-            }
-            else if ( keyPress.Key == RLKey.Escape )
-            {
-               _rootConsole.Close();
+               _renderRequired = true;
+               CommandSystem.EndPlayerTurn();
             }
          }
-
-         if ( didPlayerAct )
-         {  
+         else
+         {
+            CommandSystem.ActivateMonsters();
             _renderRequired = true;
          }
       }
@@ -133,10 +146,11 @@ namespace RogueSharpV3Tutorial
             _mapConsole.Clear();
             _statConsole.Clear();
             _messageConsole.Clear();
+
             DungeonMap.Draw( _mapConsole, _statConsole );
-            MessageLog.Draw( _messageConsole );
             Player.Draw( _mapConsole, DungeonMap );
-            Player.DrawStats( _statConsole ); 
+            Player.DrawStats( _statConsole );  
+            MessageLog.Draw( _messageConsole );
 
             // Blit the sub consoles to the root console in the correct locations
             RLConsole.Blit( _mapConsole, 0, 0, _mapWidth, _mapHeight, _rootConsole, 0, _inventoryHeight );
