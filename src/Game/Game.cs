@@ -32,7 +32,7 @@ namespace RogueSharpV3Tutorial
       private static readonly int _inventoryWidth = 80;
       private static readonly int _inventoryHeight = 11;
       private static RLConsole _inventoryConsole;
-
+      private static int _mapLevel = 1;
       private static bool _renderRequired = true;
 
       public static Player Player { get; set; }
@@ -54,7 +54,7 @@ namespace RogueSharpV3Tutorial
          string fontFileName = "terminal8x8.png";
 
          // The title will appear at the top of the console window along with the seed used to generate the level
-         string consoleTitle = $"RougeSharp V3 Tutorial - Level 1 - Seed {seed}";
+         string consoleTitle = $"RougeSharp V3 Tutorial - Level {_mapLevel} - Seed {seed}";
 
          // Create a new MessageLog and print the random seed used to generate the level
          MessageLog = new MessageLog();
@@ -72,7 +72,7 @@ namespace RogueSharpV3Tutorial
 
          SchedulingSystem = new SchedulingSystem();
 
-         MapGenerator mapGenerator = new MapGenerator( _mapWidth, _mapHeight, 20, 13, 7 );
+         MapGenerator mapGenerator = new MapGenerator( _mapWidth, _mapHeight, 20, 13, 7, _mapLevel );
          DungeonMap = mapGenerator.CreateMap();
          DungeonMap.UpdatePlayerFieldOfView();
 
@@ -121,6 +121,18 @@ namespace RogueSharpV3Tutorial
                else if ( keyPress.Key == RLKey.Escape )
                {
                   _rootConsole.Close();
+               }
+               else if ( keyPress.Key == RLKey.Period )
+               {
+                  if ( DungeonMap.CanMoveDownToNextLevel() )
+                  {
+                     MapGenerator mapGenerator = new MapGenerator( _mapWidth, _mapHeight, 20, 13, 7, ++_mapLevel );
+                     DungeonMap = mapGenerator.CreateMap();
+                     MessageLog = new MessageLog();
+                     CommandSystem = new CommandSystem();
+                     _rootConsole.Title = $"RougeSharp RLNet Tutorial - Level {_mapLevel}";
+                     didPlayerAct = true;
+                  }
                }
             }
 
