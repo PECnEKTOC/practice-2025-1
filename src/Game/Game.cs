@@ -130,7 +130,10 @@ namespace RogueSharpV3Tutorial
          // Don't bother redrawing all of the consoles if nothing has changed.
          if ( _renderRequired )
          {
-            DungeonMap.Draw( _mapConsole );
+            _mapConsole.Clear();
+            _statConsole.Clear();
+            _messageConsole.Clear();
+            DungeonMap.Draw( _mapConsole, _statConsole );
             MessageLog.Draw( _messageConsole );
             Player.Draw( _mapConsole, DungeonMap );
             Player.DrawStats( _statConsole ); 

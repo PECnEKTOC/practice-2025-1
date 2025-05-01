@@ -109,13 +109,29 @@ namespace RogueSharpV3Tutorial.Core
 
       // The Draw method will be called each time the map is updated
       // It will render all of the symbols/colors for each cell to the map sub console
-      public void Draw( RLConsole mapConsole )
+      public void Draw( RLConsole mapConsole, RLConsole statConsole )
       {
          mapConsole.Clear();
          foreach ( Cell cell in GetAllCells() )
          {
             SetConsoleSymbolForCell( mapConsole, cell );
          }
+
+         int i = 0;
+ 
+         // Iterate through each monster on the map and draw it after drawing the Cells
+         foreach ( Monster monster in _monsters )
+         {    
+            monster.Draw( mapConsole, this );
+            // When the monster is in the field-of-view also draw their stats
+            if ( IsInFov( monster.X, monster.Y ) )
+            {      
+               // Pass in the index to DrawStats and increment it afterwards
+               monster.DrawStats( statConsole, i );
+               i++;
+            }
+         }
+
          foreach ( Monster monster in _monsters )
          {
          monster.Draw( mapConsole, this );
