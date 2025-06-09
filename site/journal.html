@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Журнал - ECOllapse</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <div><strong>ECOllapse</strong></div>
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="about.html">О проекте</a>
+        <a href="gameplay.html">Геймплей</a>
+        <a href="features.html">Особенности</a>
+        <a href="journal.html">Журнал</a>
+        <a href="team.html">Команда</a>
+        <a href="platforms.html">Платформы</a>
+    </nav>
+</header>
+
+<style>
+    .video-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 800px; 
+        margin: auto;
+    }
+
+    .video-wrapper video {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+</style>
+
+<main>
+    <section id="journal">
+        <h2>Журнал разработки</h2>
+
+        <!-- Пост 1 -->
+        <article class="post">
+            <h3>25 февраля 2025 — Переход с Godot на Unity</h3>
+            <p>
+                На этой неделе команда приняла важное решение — перейти с движка Godot на Unity. Несмотря на то, что начальная разработка велась на Godot, мы столкнулись с рядом ограничений, особенно в плане масштабируемости и поддержки инструментов для процедурной генерации.
+            </p>
+            <p>
+                Unity был выбран как более подходящая платформа для реализации задуманного: он имеет широкое сообщество, большое количество обучающих материалов и уже знаком многим участникам команды. Это позволило нам ускорить процесс разработки и сосредоточиться на игровой механике, а не на адаптации движка под наши задачи.
+            </p>
+        </article>
+
+        <!-- Пост 2 -->
+        <article class="post">
+            <h3>29 марта 2025 — Создан прототип интерфейса</h3>
+            <p>
+                После нескольких недель работы над основными системами игры, мы приступили к созданию первого концепта пользовательского интерфейса. Интерфейс стал важным этапом, так как от него зависит удобство взаимодействия игрока с изменяющимся миром.
+            </p>
+            <p>
+                Прототип включает:
+            </p>
+            <ul class="feature-list">
+                <li>Меню старта игры с анимацией появления;</li>
+                <li>Настройки игры</li>
+                <li>Выход из игры</li>
+                <li>Базовую навигацию по меню.</li>
+            </ul>
+
+            <div class="video-wrapper">
+                <video controls>
+                    <source src="video1.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает воспроизведение видео.
+                </video>
+            </div>
+        </article>
+
+        <!-- Пост 3 -->
+        <article class="post">
+            <h3>17 апреля 2025 — Прототип процедурной генерации мира</h3>
+            <p>
+                На текущем этапе разработки реализована базовая система процедурной генерации внешнего вида планеты. Мир представлен в виде сферы, которая визуально делится на три основные зоны:
+            </p>
+            <ul class="feature-list">
+                <li>Водные зоны — океаны и моря</li>
+                <li>Суша — континенты и острова;</li>
+                <li>Горные районы — возвышенные участки с изменённой высотой рельефа.</li>
+            </ul>
+
+            <!-- Скриншот (заглушка) -->
+            <div class="image-section">
+                <img src="image2.png" alt="Прототип процедурной генерации мира" style="max-width: 100%; border-radius: 8px;">
+            </div>
+        </article>
+
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 ECOllapse. Все права защищены.</p>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
